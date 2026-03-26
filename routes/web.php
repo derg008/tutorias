@@ -22,10 +22,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     
 });
 
-// En routes/web.php
-// Ruta de logout personalizada
 
-     
 Route::get('/register-tutor', [RegisterTutorController::class, 'create'])->name('register.tutor');
 
 
