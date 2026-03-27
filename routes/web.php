@@ -18,23 +18,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('tutorias', TutoriaController::class);
    Route::get('/calendar', [TutoriaCalendarController::class, 'index'])->name('calendar.index');
-    
-    
 });
-
-
 Route::get('/register-tutor', [RegisterTutorController::class, 'create'])->name('register.tutor');
-
-
 // Ruta para mostrar el formulario
 Route::get('/register-student', [RegisterStudentController::class, 'create'])->name('register.student');
 
 // Ruta para procesar el registro
 Route::post('/register-student', [RegisterStudentController::class, 'store']);
-// Role Selection (página intermedia)
+
 Route::get('/register', function () {
-    return Inertia::render('Auth/RoleSelection');
+    return Inertia::render('auth/RoleSelection');
 })->name('register');
+
 
 Route::post('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'destroy'])
      ->name('logout');

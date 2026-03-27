@@ -13,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {   
+        Role::create( );
+        Role::create( );
+        Role::create( );
+        
         $this->call([
         TutoriaSeeder::class,
         // Otros seeders que ya tengas...
